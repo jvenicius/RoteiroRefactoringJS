@@ -20,8 +20,7 @@ function gerarFaturaStr(fatura, pecas) {
 
     function calcularTotalApresentacao(apre) {
       let total = 0;
-      const peca = getPeca(apre);
-      switch (peca.tipo) {
+      switch (getPeca(apre).tipo) {
         case "tragedia":
           total = 40000;
           if (apre.audiencia > 30) {
@@ -36,7 +35,7 @@ function gerarFaturaStr(fatura, pecas) {
           total += 300 * apre.audiencia;
           break;
         default:
-          throw new Error(`Peça desconhecia: ${peca.tipo}`);
+          throw new Error(`Peça desconhecia: ${getPeca(apre).tipo}`);
       }
       return total;
     }
